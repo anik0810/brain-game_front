@@ -85,10 +85,20 @@ export const wrongAttempt = (attempt) => {
     }
 }
 
+
 export const refreshWrongAttempt = () => {
     return (dispatch) => {
         dispatch({
             type: 'newLevel',
+            payload: 0
+        })
+    }
+}
+
+export const refreshAccuracy = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'refreshAccuracy',
             payload: 0
         })
     }

@@ -6,6 +6,7 @@ import loggedInReducer from "./loggedInReducer";
 import lifeReducer from "./lifeReducer";
 import wrongAttemptReducer from "./wrongAttemptReducer";
 import timeReducer from "./timeReducer";
+import accuracyReducer from "./accuracyReducer";
 
 const reducers=combineReducers({
     point:pointReducer,
@@ -14,7 +15,8 @@ const reducers=combineReducers({
     loggedIn:loggedInReducer,
     life:lifeReducer,
     wrongAttempt:wrongAttemptReducer,
-    time:timeReducer
+    time:timeReducer,
+    accuracy:accuracyReducer
     
 })
 

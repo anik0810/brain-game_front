@@ -13,6 +13,7 @@ import Home from './components/Main_Screen/Home/Home';
 import LeaderBoard from './components/Main_Screen/LeaderBoard/LeaderBoard';
 import AdminLogin from './components/Admin_Screen/AdminLogin';
 import AdminDashboard from './components/Admin_Screen/AdminDashboard';
+import Stat from './components/Game_Screen/Stats/Stat';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" element={(localStorage.getItem('isLoggedIn')) ? <Navigate to="/game" /> : <Navigate to="/home" />} />
           <Route path='/home' element={<Home />} />
           <Route path='/game' element={<Main />} />
+          <Route path='/stat' element={<Stat />} />
           <Route path='/leaderBoard' element={<LeaderBoard />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />}/>
           <Route path="/admin/login" element={<AdminLogin />}/>

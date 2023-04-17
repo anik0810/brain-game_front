@@ -66,7 +66,7 @@ export default function Navbar() {
                             {(isLoggedIn) ? getuserState['name'] : 'Profile'}
                         </a>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="#">Level : {getuserState['level']} </a></li>
+                            <li><Link className="dropdown-item" to='/stat'>Stats </Link></li>
                             <li><a className="dropdown-item" href="#" >Highest Point :{getuserState['highestScore']}</a></li>
                             <li><hr className="dropdown-divider" /></li>
                             {/* <button onClick={()=>{getScore('banerjeerupsa188@gmail.com')}}></button> */}

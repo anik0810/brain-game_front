@@ -11,6 +11,7 @@ export default function Life() {
     const score = useSelector(state => state.point);
     const userState = useSelector(state => state.userState);
     const life = useSelector(state => state.life)
+    const accuracy = useSelector(state => state.accuracy)
 
 
 
@@ -34,11 +35,13 @@ export default function Life() {
             <div className='item-life'>
                 <p>Score : {score}</p>
                 <p>Highest : {userState['highestScore']}</p>
+                <p>Accuracy</p>
             </div>
             <div className='item-life'>
                 <p>Time : <Time /> </p>
                 <p>Lowest Time : {(userState['minTime'] !== 99999999) ? userState['minTime'] : 0} s</p>
             </div>
+                
         </div>
     )
 }

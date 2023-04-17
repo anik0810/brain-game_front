@@ -16,13 +16,15 @@ export default function GameOver() {
     const life = useSelector(state => state.life)
     const level = useSelector(state => state.level)
     const score = useSelector(state => state.point);
-    const time = useSelector(state => state.time)
+    const time = useSelector(state => state.time);
+    const accuracy = useSelector(state => state.accuracy);
 
     const { refreshLevel } = bindActionCreators(actionCreators, dispatch)
     const { refreshLife } = bindActionCreators(actionCreators, dispatch)
     const { refreshPoint } = bindActionCreators(actionCreators, dispatch)
     const { refreshTime } = bindActionCreators(actionCreators, dispatch)
     const { refreshWrongAttempt } = bindActionCreators(actionCreators, dispatch)
+    const { refreshAccuracy } = bindActionCreators(actionCreators, dispatch)
 
     const [heading,setHeading]=useState('')
     const [resume,setResume]=useState(false)
@@ -47,14 +49,16 @@ export default function GameOver() {
     },[])
 
     function reStart() {
+        updateScore();
+        updateTime();
+        updateAccuracy();
         refreshLevel(1);
         refreshLife(3);
         refreshPoint(0);
         refreshTime(0);
         refreshWrongAttempt(0);
+        refreshAccuracy(0);
         setShow(false)
-        updateScore();
-        updateTime();
         navigate('/game')
     }
 
@@ -70,6 +74,16 @@ export default function GameOver() {
         let email = localStorage.getItem('email');
         axios
             .put(`http://65.0.74.234:8989/addTime/${email}/${time}`)
+            .then(({ data }) => {
+                console.log(data);
+            });
+    }
+
+    function updateAccuracy() {
+        let email = localStorage.getItem('email');
+        let properAccuracy= Math.ceil((10/accuracy+10)*100);
+        axios
+            .put(`http://65.0.74.234/updateAccuracy/${email}/${properAccuracy}`)
             .then(({ data }) => {
                 console.log(data);
             });
