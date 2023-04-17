@@ -25,6 +25,7 @@ export default function GameOver() {
     const { refreshWrongAttempt } = bindActionCreators(actionCreators, dispatch)
 
     const [heading,setHeading]=useState('')
+    const [resume,setResume]=useState(false)
 
 
     useEffect(() => {
@@ -32,11 +33,18 @@ export default function GameOver() {
             setShow(true)
             setHeading('Game Over')
         }
-        if(level>10){
+        else if(level>10){
             setShow(true);
             setHeading('Congratulation !! You reached max level')
         }
     }, [life,level])
+
+    useEffect(()=>{
+        if(level>1){
+            setShow(true);
+            setResume(true);
+        }
+    },[])
 
     function reStart() {
         refreshLevel(1);
@@ -81,6 +89,7 @@ export default function GameOver() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="success" onClick={() => { reStart() }}>Restart Game</Button>
+                    {(resume)?<Button variant="primary" onClick={() => { setShow(false);setResume(false) }}>Resume Game</Button>:null}
                 </Modal.Footer>
             </Modal>
         </>
