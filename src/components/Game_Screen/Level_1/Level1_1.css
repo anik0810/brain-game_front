@@ -1,0 +1,31 @@
+.options{
+    text-align: center;
+    margin-top: 1rem;
+}
+.password{
+    padding: 8px 15px;
+}
+.puzzle-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    padding: 10px;
+}
+.photo{
+    width: 30rem;
+    object-fit: cover;
+    object-position: center;
+}
+@media (max-width:575px) {
+    .photo{
+        width: 100%;
+    }
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
